@@ -9,7 +9,7 @@
     <version>1.0.3-R</version>
     <packaging>jar</packaging>
 
-    <name>UnlimitedEnchantment</name>
+    <name>UnlimitedAnvil</name>
 
     <properties>
         <java.version>1.8</java.version>
