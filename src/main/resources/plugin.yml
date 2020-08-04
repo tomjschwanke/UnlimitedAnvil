@@ -1,4 +1,4 @@
-name: UnlimitedEnchantment
+name: UnlimitedAnvil
 version: ${project.version}
 main: de.tomjschwanke.unlimitedanvil.UnlimitedAnvil
 api-version: 1.15
