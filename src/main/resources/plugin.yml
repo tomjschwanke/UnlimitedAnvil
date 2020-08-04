@@ -1,0 +1,4 @@
+name: UnlimitedEnchantment
+version: ${project.version}
+main: de.tomjschwanke.unlimitedenchantment.UnlimitedEnchantment
+api-version: 1.15
