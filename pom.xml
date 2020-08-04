@@ -6,7 +6,7 @@
 
     <groupId>de.tomjschwanke</groupId>
     <artifactId>UnlimitedAnvil</artifactId>
-    <version>1.0.2-R</version>
+    <version>1.0.3-R</version>
     <packaging>jar</packaging>
 
     <name>UnlimitedEnchantment</name>
