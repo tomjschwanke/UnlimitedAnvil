@@ -1,4 +1,7 @@
 name: UnlimitedAnvil
 version: ${project.version}
+description: Plugin to bypass the anvils 40 level limit
+author: tomjschwanke
+website: https://github.com/tomjschwanke/UnlimitedAnvil
 main: de.tomjschwanke.unlimitedanvil.UnlimitedAnvil
 api-version: 1.15
