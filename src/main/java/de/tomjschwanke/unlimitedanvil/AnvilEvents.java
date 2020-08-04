@@ -1,4 +1,4 @@
-package de.tomjschwanke.unlimitedenchantment;
+package de.tomjschwanke.unlimitedanvil;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

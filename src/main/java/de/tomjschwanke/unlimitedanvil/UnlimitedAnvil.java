@@ -1,8 +1,8 @@
-package de.tomjschwanke.unlimitedenchantment;
+package de.tomjschwanke.unlimitedanvil;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class UnlimitedEnchantment extends JavaPlugin {
+public final class UnlimitedAnvil extends JavaPlugin {
 
     @Override
     public void onEnable() {
@@ -18,6 +18,6 @@ public final class UnlimitedEnchantment extends JavaPlugin {
     }
 
     public void printConsole(String msg) {
-        this.getServer().getConsoleSender().sendMessage("[UnlimitedEnchantment] " + msg);
+        this.getServer().getConsoleSender().sendMessage("[UnlimitedAnvil] " + msg);
     }
 }
