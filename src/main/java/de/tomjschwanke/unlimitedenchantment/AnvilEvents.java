@@ -9,16 +9,10 @@ import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.plugin.Plugin;
 
 public class AnvilEvents implements Listener {
-    Plugin plugin;
-
-    public AnvilEvents(UnlimitedEnchantment plugin) {
-        plugin.getServer().getPluginManager().registerEvents(this, plugin);
-    }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void anvilCost(PrepareAnvilEvent event) {
         AnvilInventory inv = event.getInventory();
-        // max integer: 2147483647
-        Bukkit.getScheduler().runTask(plugin, ()->inv.setMaximumRepairCost(999));
+        inv.setMaximumRepairCost(Integer.MAX_VALUE);
     }
 }
