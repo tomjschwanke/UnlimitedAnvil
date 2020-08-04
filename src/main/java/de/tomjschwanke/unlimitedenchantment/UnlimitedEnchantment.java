@@ -17,6 +17,6 @@ public final class UnlimitedEnchantment extends JavaPlugin {
     }
 
     public void printConsole(String msg) {
-        this.getServer().getConsoleSender().sendMessage("[UnlimitedEnchantment]" + msg);
+        this.getServer().getConsoleSender().sendMessage("[UnlimitedEnchantment] " + msg);
     }
 }
