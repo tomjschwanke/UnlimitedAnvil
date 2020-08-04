@@ -15,7 +15,7 @@ public class AnvilEvents implements Listener {
         Player p = (Player) event.getViewers().get(0);
         AnvilInventory inv = event.getInventory();
         inv.setMaximumRepairCost(Integer.MAX_VALUE);
-        if(event.getResult() != null && System.currentTimeMillis() - lastCalled > 10) {
+        if(event.getResult() != null && System.currentTimeMillis() - lastCalled > 10 && inv.getRepairCost() >= 40) {
             lastCalled = System.currentTimeMillis();
             p.sendMessage("Cost: " + inv.getRepairCost());
         }
