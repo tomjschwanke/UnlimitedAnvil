@@ -2,6 +2,7 @@ package de.tomjschwanke.unlimitedanvil;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+@SuppressWarnings("unused")
 public class UnlimitedAnvil extends JavaPlugin {
 
     @Override
