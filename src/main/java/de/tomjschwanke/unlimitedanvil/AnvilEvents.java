@@ -30,7 +30,7 @@ public class AnvilEvents implements Listener {
             // Get player so we can send a message
             Player p = (Player) event.getViewers().get(0);
             // Send message about cost to player
-            p.sendMessage("Cost: " + inv.getRepairCost());
+            p.sendMessage("Cost: " + inv.getRepairCost() + " levels");
         }
     }
 }
