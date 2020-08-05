@@ -6,7 +6,7 @@
 
     <groupId>de.tomjschwanke</groupId>
     <artifactId>UnlimitedAnvil</artifactId>
-    <version>1.0.5-R</version>
+    <version>1.0.6-R</version>
     <packaging>jar</packaging>
 
     <name>UnlimitedAnvil</name>
@@ -80,7 +80,7 @@
         </dependency>
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
+            <artifactId>bstats-bukkit-lite</artifactId>
             <version>1.7</version>
             <scope>compile</scope>
         </dependency>
