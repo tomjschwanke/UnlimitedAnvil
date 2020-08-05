@@ -2,7 +2,7 @@ package de.tomjschwanke.unlimitedanvil;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class UnlimitedAnvil extends JavaPlugin {
+public class UnlimitedAnvil extends JavaPlugin {
 
     @Override
     public void onEnable() {
