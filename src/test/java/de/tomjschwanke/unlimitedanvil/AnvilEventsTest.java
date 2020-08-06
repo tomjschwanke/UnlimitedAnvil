@@ -10,7 +10,7 @@ class AnvilEventsTest {
     @org.junit.jupiter.api.Test
     void upsideDownNumber() {
         AnvilEvents anvilEvents = new AnvilEvents();
-        String result = anvilEvents.upsideDownNumber(1337);
-        assertEquals("ㄥƐƐƖ", result);
+        String result = anvilEvents.upsideDownNumber(1372450869);
+        assertEquals("6980ϛᔭᄅㄥƐƖ", result);
     }
 }

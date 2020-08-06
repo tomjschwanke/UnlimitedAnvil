@@ -82,10 +82,12 @@ public class AnvilEvents implements Listener {
         StringBuilder numberUD = new StringBuilder();
         for(int i = number.length(); i > 0; i--) {
             switch (number.substring(i - 1, i)) {
+                // 068ㄥ9ϛᔭƐᄅƖ
+                case "0": numberUD.append("0"); break;
                 case "1": numberUD.append("Ɩ"); break;
                 case "2": numberUD.append("ᄅ"); break;
                 case "3": numberUD.append("Ɛ"); break;
-                case "4": numberUD.append("ㄣ"); break;
+                case "4": numberUD.append("ᔭ"); break;
                 case "5": numberUD.append("ϛ"); break;
                 case "6": numberUD.append("9"); break;
                 case "7": numberUD.append("ㄥ"); break;
