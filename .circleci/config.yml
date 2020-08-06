@@ -21,8 +21,7 @@ jobs: # a collection of steps
           paths:
             - ~/.m2
           key: circleci-unlimited-anvil-{{ checksum "pom.xml" }}
-      
-      - run: mvn clean test
+
       - run: mvn clean package
       
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
