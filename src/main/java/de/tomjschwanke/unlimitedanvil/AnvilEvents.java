@@ -1,12 +1,16 @@
 package de.tomjschwanke.unlimitedanvil;
 
 import org.bukkit.GameMode;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareAnvilEvent;
 import org.bukkit.inventory.AnvilInventory;
+
+import java.util.Objects;
 
 public class AnvilEvents implements Listener {
     // Setup time variable, we'll need it later
@@ -34,12 +38,21 @@ public class AnvilEvents implements Listener {
 
             // Send message about cost to player
             String[] strings = localizedCost(p.getLocale());
-            if(!strings[2].equals("inv")) {
-                // Normal message
-                p.sendMessage(strings[0] + inv.getRepairCost() + strings[1]);
-            }else {
+            if(Objects.equals(strings[2], "inv")) {
                 // Using upside down text, turning number upside down
                 p.sendMessage(strings[0] + upsideDownNumber(inv.getRepairCost()) + strings[1]);
+            }else {
+                // Normal message
+                p.sendMessage(strings[0] + inv.getRepairCost() + strings[1]);
+            }
+
+            // Play sound to indicate whether you have enough levels or not
+            if(p.getLevel() > inv.getRepairCost()) {
+                // Enough levels, *pling
+                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, SoundCategory.BLOCKS, 1,1);
+            }else {
+                // Not enough levels *mööp
+                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, SoundCategory.BLOCKS, 1, 1);
             }
         }
     }
