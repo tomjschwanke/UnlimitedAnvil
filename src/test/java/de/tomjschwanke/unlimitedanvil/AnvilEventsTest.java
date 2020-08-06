@@ -11,7 +11,6 @@ class AnvilEventsTest {
     void upsideDownNumber() {
         AnvilEvents anvilEvents = new AnvilEvents();
         String result = anvilEvents.upsideDownNumber(1337);
-        System.out.println(result);
         assertEquals("ㄥƐƐƖ", result);
     }
 }

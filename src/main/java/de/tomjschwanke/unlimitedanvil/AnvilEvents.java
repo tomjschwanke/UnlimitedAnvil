@@ -71,7 +71,7 @@ public class AnvilEvents implements Listener {
         String number = Integer.toString(nr);
         StringBuilder numberUD = new StringBuilder();
         for(int i = number.length(); i > 0; i--) {
-            switch (number.substring(i, i + 1)) {
+            switch (number.substring(i - 1, i)) {
                 case "1": numberUD.append("Ɩ"); break;
                 case "2": numberUD.append("ᄅ"); break;
                 case "3": numberUD.append("Ɛ"); break;
