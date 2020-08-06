@@ -44,7 +44,7 @@ public class AnvilEvents implements Listener {
         }
     }
 
-    private String[] localizedCost(String locale) {
+    String[] localizedCost(String locale) {
         String[] strings = new String[3];
         switch(locale) {
             case "en_us":
