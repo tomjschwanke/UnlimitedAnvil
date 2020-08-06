@@ -11,7 +11,6 @@ import org.bukkit.inventory.AnvilInventory;
 public class AnvilEvents implements Listener {
     // Setup time variable, we'll need it later
     long lastCalled = System.currentTimeMillis();
-    private int nr;
 
     // Event handler gets called when something is put into the anvil
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -34,37 +33,46 @@ public class AnvilEvents implements Listener {
             lastCalled = System.currentTimeMillis();
 
             // Send message about cost to player
-            sendLocalizedCost(p, inv.getRepairCost());
+            String[] strings = localizedCost(p.getLocale());
+            if(!strings[2].equals("inv")) {
+                // Normal message
+                p.sendMessage(strings[0] + inv.getRepairCost() + strings[1]);
+            }else {
+                // Using upside down text, turning number upside down
+                p.sendMessage(strings[0] + upsideDownNumber(inv.getRepairCost()) + strings[1]);
+            }
         }
     }
 
-    private void sendLocalizedCost(Player p, int repairCost) {
-        switch(p.getLocale()) {
+    private String[] localizedCost(String locale) {
+        String[] strings = new String[3];
+        switch(locale) {
             case "en_us":
             case "en_gb":
             case "en_ca":
             case "en_au":
-            default:      p.sendMessage("Cost: " + repairCost + " levels"); break;
-            case "en_ud": p.sendMessage("slǝʌǝ˥ " + upsideDownNumber(repairCost) + " :ʇsoƆ");
+            default:      strings[0] = "Cost: "; strings[1] = " levels"; break;
+            case "en_ud": strings[0] = "slǝʌǝ˥ "; strings[1] = " :ʇsoƆ"; strings[2] = "inv"; break;
             case "de_at":
-            case "de_de": p.sendMessage("Kosten: " + repairCost + " Level"); break;
+            case "de_de": strings[0] = "Kosten: "; strings[1] = " Level"; break;
             case "fr_fr":
-            case "fr_ca": p.sendMessage("Frais: " + repairCost + " niveaux"); break;
-            case "nl_nl": p.sendMessage("Kosten: " + repairCost + " niveaus"); break;
+            case "fr_ca": strings[0] = "Frais: "; strings[1] = " niveaux"; break;
+            case "nl_nl": strings[0] = "Kosten: "; strings[1] = " niveaus"; break;
             case "es_es":
             case "es_uy":
             case "es_mx":
             case "es_ar":
-            case "es_ve": p.sendMessage("Costo: " + repairCost + " niveles"); break;
-            case "da_dk": p.sendMessage("Omkostninger: " + repairCost + " niveauer"); break;
-            case "fi_fi": p.sendMessage("Kustannukset: " + repairCost + " tasoa"); break;
-            case "sv_se": p.sendMessage("Kostar: " + repairCost + " nivåer"); break;
-            case "it_it": p.sendMessage("Costi: " + repairCost + " livelli"); break;
-            case "pl_pl": p.sendMessage("Koszty: " + repairCost + " poziomów"); break;
-            case "tr_tr": p.sendMessage("Maliyetler: " + repairCost + " seviye"); break;
-            case "ru_ru": p.sendMessage("Pасходы: " + repairCost + " получил"); break;
-            case "ja_jp": p.sendMessage("費用: " + repairCost + " レベル"); break;
+            case "es_ve": strings[0] = "Costo: "; strings[1] = " niveles"; break;
+            case "da_dk": strings[0] = "Omkostninger: "; strings[1] = " niveauer"; break;
+            case "fi_fi": strings[0] = "Kustannukset: "; strings[1] = " tasoa"; break;
+            case "sv_se": strings[0] = "Kostar: "; strings[1] = " nivåer"; break;
+            case "it_it": strings[0] = "Costi: "; strings[1] = " livelli"; break;
+            case "pl_pl": strings[0] = "Koszty: "; strings[1] = " poziomów"; break;
+            case "tr_tr": strings[0] = "Maliyetler: "; strings[1] = " seviye"; break;
+            case "ru_ru": strings[0] = "Pасходы: "; strings[1] = " получил"; break;
+            case "ja_jp": strings[0] = "費用: "; strings[1] = " レベル"; break;
         }
+        return strings;
     }
 
     String upsideDownNumber(int nr) {
