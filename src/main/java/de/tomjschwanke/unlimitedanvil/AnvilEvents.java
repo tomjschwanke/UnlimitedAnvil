@@ -33,7 +33,55 @@ public class AnvilEvents implements Listener {
             lastCalled = System.currentTimeMillis();
 
             // Send message about cost to player
-            p.sendMessage("Cost: " + inv.getRepairCost() + " levels");
+            sendLocalizedCost(p, inv.getRepairCost());
         }
+    }
+
+    private void sendLocalizedCost(Player p, int repairCost) {
+        switch(p.getLocale()) {
+            case "en_us":
+            case "en_gb":
+            case "en_ca":
+            case "en_au":
+            default:      p.sendMessage("Cost: " + repairCost + " levels"); break;
+            case "en_ud": p.sendMessage("slǝʌǝ˥ " + upsideDownNumber(repairCost) + " :ʇsoƆ");
+            case "de_at":
+            case "de_de": p.sendMessage("Kosten: " + repairCost + " Level"); break;
+            case "fr_fr":
+            case "fr_ca": p.sendMessage("Frais: " + repairCost + " niveaux"); break;
+            case "nl_nl": p.sendMessage("Kosten: " + repairCost + " niveaus"); break;
+            case "es_es":
+            case "es_uy":
+            case "es_mx":
+            case "es_ar":
+            case "es_ve": p.sendMessage("Costo: " + repairCost + " niveles"); break;
+            case "da_dk": p.sendMessage("Omkostninger: " + repairCost + " niveauer"); break;
+            case "fi_fi": p.sendMessage("Kustannukset: " + repairCost + " tasoa"); break;
+            case "sv_se": p.sendMessage("Kostar: " + repairCost + " nivåer"); break;
+            case "it_it": p.sendMessage("Costi: " + repairCost + " livelli"); break;
+            case "pl_pl": p.sendMessage("Koszty: " + repairCost + " poziomów"); break;
+            case "tr_tr": p.sendMessage("Maliyetler: " + repairCost + " seviye"); break;
+            case "ru_ru": p.sendMessage("Pасходы: " + repairCost + " получил"); break;
+            case "ja_jp": p.sendMessage("費用: " + repairCost + " レベル"); break;
+        }
+    }
+
+    String upsideDownNumber(int nr) {
+        String number = Integer.toString(nr);
+        StringBuilder numberUD = new StringBuilder();
+        for(int i = number.length(); i > 0; i--) {
+            switch (number.substring(i, i + 1)) {
+                case "1": numberUD.append("Ɩ"); break;
+                case "2": numberUD.append("ᄅ"); break;
+                case "3": numberUD.append("Ɛ"); break;
+                case "4": numberUD.append("ㄣ"); break;
+                case "5": numberUD.append("ϛ"); break;
+                case "6": numberUD.append("9"); break;
+                case "7": numberUD.append("ㄥ"); break;
+                case "8": numberUD.append("8"); break;
+                case "9": numberUD.append("6"); break;
+            }
+        }
+        return numberUD.toString();
     }
 }
