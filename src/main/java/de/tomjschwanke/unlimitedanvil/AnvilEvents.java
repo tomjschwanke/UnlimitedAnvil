@@ -53,6 +53,8 @@ public class AnvilEvents implements Listener {
             case "en_au":
             default:      strings[0] = "Cost: "; strings[1] = " levels"; break;
             case "en_ud": strings[0] = "slǝʌǝ˥ "; strings[1] = " :ʇsoƆ"; strings[2] = "inv"; break;
+            case "enws" : strings[0] = "Cost: "; strings[1] = " leveleth"; break;
+            case "enp"  : strings[0] = "Outlay: "; strings[1] = " levels"; break;
             case "de_at":
             case "de_de": strings[0] = "Kosten: "; strings[1] = " Level"; break;
             case "fr_fr":
