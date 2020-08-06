@@ -11,6 +11,7 @@ import org.bukkit.inventory.AnvilInventory;
 public class AnvilEvents implements Listener {
     // Setup time variable, we'll need it later
     long lastCalled = System.currentTimeMillis();
+    private int nr;
 
     // Event handler gets called when something is put into the anvil
     @EventHandler(priority = EventPriority.HIGHEST)
