@@ -5,3 +5,12 @@ author: tomjschwanke
 website: https://github.com/tomjschwanke/UnlimitedAnvil
 main: de.tomjschwanke.unlimitedanvil.UnlimitedAnvil
 api-version: 1.15
+commands:
+  unlimitedanvil:
+    description: Change UnlimitedAnvil config via command
+    usage: /unlimitedanvil config [config] [value]
+    permissions:
+      unlimitedanvil.config:
+        description: Allows you to change the config of UnlimitedAnvil
+        default: op
+    permission-message: You don't have <permission>

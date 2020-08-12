@@ -3,6 +3,8 @@ package de.tomjschwanke.unlimitedanvil;
 import org.bstats.bukkit.MetricsLite;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 @SuppressWarnings("unused")
 public class UnlimitedAnvil extends JavaPlugin {
 
@@ -14,6 +16,7 @@ public class UnlimitedAnvil extends JavaPlugin {
         MetricsLite metrics = new MetricsLite(this, pluginId);
         // Init config
         initConfig();
+        initCommands();
         // Register event handler
         getServer().getPluginManager().registerEvents(new AnvilEvents(), this);
         printConsole("Enabled");
@@ -31,7 +34,12 @@ public class UnlimitedAnvil extends JavaPlugin {
 
     // Init config and save to plugin folder if not present
     private void initConfig() {
-        getConfig().addDefault("enable-sound", true);
+        getConfig().addDefault("sound-enabled", true);
         saveDefaultConfig();
+    }
+
+    // Init command executor
+    private void initCommands() {
+        Objects.requireNonNull(getCommand("unlimitedanvil")).setExecutor(new AnvilCommands());
     }
 }
