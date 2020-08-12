@@ -41,5 +41,6 @@ public class UnlimitedAnvil extends JavaPlugin {
     // Init command executor
     private void initCommands() {
         Objects.requireNonNull(getCommand("unlimitedanvil")).setExecutor(new AnvilCommands());
+        Objects.requireNonNull(getCommand("unlimitedanvil")).setTabCompleter(new AnvilTabCompleter());
     }
 }
