@@ -46,14 +46,18 @@ public class AnvilEvents implements Listener {
                 p.sendMessage(strings[0] + inv.getRepairCost() + strings[1]);
             }
 
-            // Play sound to indicate whether you have enough levels or not
-            if(p.getLevel() > inv.getRepairCost()) {
-                // Enough levels, *pling
-                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, SoundCategory.BLOCKS, 1,1);
-            }else {
-                // Not enough levels *mööp
-                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, SoundCategory.BLOCKS, 1, 1);
+            // Check whether sounds are turned off in config
+            if(UnlimitedAnvil.getPlugin(UnlimitedAnvil.class).getConfig().getBoolean("sound-enabled")) {
+                // Play sound to indicate whether you have enough levels or not
+                if(p.getLevel() > inv.getRepairCost()) {
+                    // Enough levels, *pling
+                    p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, SoundCategory.BLOCKS, 1,1);
+                }else {
+                    // Not enough levels *mööp
+                    p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, SoundCategory.BLOCKS, 1, 1);
+                }
             }
+
         }
     }
 

@@ -12,6 +12,8 @@ public class UnlimitedAnvil extends JavaPlugin {
         // bStats metrics
         int pluginId = 8429;
         MetricsLite metrics = new MetricsLite(this, pluginId);
+        // Init config
+        initConfig();
         // Register event handler
         getServer().getPluginManager().registerEvents(new AnvilEvents(), this);
         printConsole("Enabled");
@@ -24,6 +26,12 @@ public class UnlimitedAnvil extends JavaPlugin {
     }
     // Prefix console messages
     public void printConsole(String msg) {
-        this.getServer().getConsoleSender().sendMessage("[UnlimitedAnvil] " + msg);
+        getServer().getConsoleSender().sendMessage("[UnlimitedAnvil] " + msg);
+    }
+
+    // Init config and save to plugin folder if not present
+    private void initConfig() {
+        getConfig().addDefault("enable-sound", true);
+        saveDefaultConfig();
     }
 }
